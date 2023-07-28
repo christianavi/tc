@@ -49,14 +49,14 @@ export default function IndexPage({
           )}
         >
           <article className='layout'>
-            <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
+            {/* <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
               Hi!
-            </h2>
+            </h2> */}
             <h1
               className='mt-1 text-3xl md:text-5xl 2xl:text-6xl'
               data-fade='2'
             >
-              You can call me <Accent>Clarence</Accent>
+              Corporate Slave by day, <Accent>Open Sourcerer</Accent> by night.
             </h1>
             <p
               className={clsx(
@@ -65,8 +65,9 @@ export default function IndexPage({
               )}
               data-fade='3'
             >
-              I work with React Ecosystem, and write to teach people how to
-              rebuild and redefine fundamental concepts through mental models.
+              Hey, I'm Avi. I work with React Ecosystem, and write to teach
+              people how to rebuild and redefine fundamental concepts through
+              mental models.
             </p>
             <p
               className='mt-3 max-w-4xl leading-relaxed text-gray-700 dark:text-gray-200 md:mt-4 md:text-lg 2xl:text-xl'

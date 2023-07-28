@@ -2,7 +2,7 @@ import { FeedbackFish } from '@feedback-fish/react';
 import * as React from 'react';
 import { FiMail } from 'react-icons/fi';
 import { IconType } from 'react-icons/lib';
-import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
+import { SiGithub, SiTwitter } from 'react-icons/si';
 
 import { trackEvent } from '@/lib/analytics';
 import useCopyToClipboard from '@/hooks/useCopyToClipboard';
@@ -28,7 +28,7 @@ export default function Footer() {
         <SocialLinks />
 
         <p className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
-          © Theodorus Clarence {new Date().getFullYear()}
+          © Luna {new Date().getFullYear()}
           {feedbackFlag && (
             <>
               {' • '}
@@ -85,7 +85,7 @@ function SocialLinks() {
                 ? 'Click the mail logo to copy'
                 : 'Copied to clipboard 🥳'}
               <Accent className='inline-block font-medium'>
-                me@theodorusclarence.com
+                nobody@iwr.pw
               </Accent>
             </div>
           }
@@ -191,7 +191,7 @@ type Social = {
 };
 const socials: Social[] = [
   {
-    href: 'https://clarence.link/github',
+    href: 'https://github.com/christianavi',
     icon: SiGithub,
     id: 'Github',
     text: (
@@ -200,24 +200,23 @@ const socials: Social[] = [
       </>
     ),
   },
+  // {
+  //   href: 'https://clarence.link/linkedin',
+  //   icon: SiLinkedin,
+  //   id: 'Linkedin',
+  //   text: (
+  //     <>
+  //       Find me on <Accent className='font-medium'>Linkedin</Accent>
+  //     </>
+  //   ),
+  // },
   {
-    href: 'https://clarence.link/linkedin',
-    icon: SiLinkedin,
-    id: 'Linkedin',
-    text: (
-      <>
-        Find me on <Accent className='font-medium'>Linkedin</Accent>
-      </>
-    ),
-  },
-  {
-    href: 'https://clarence.link/twt',
+    href: 'https://x.com/christianaviii',
     icon: SiTwitter,
     id: 'Twitter',
     text: (
       <>
-        I post updates, tips, insight, and sometimes do some talk. Follow me on{' '}
-        <Accent className='font-medium'>Twitter</Accent>!
+        Follow me on <Accent className='font-medium'>Twitter</Accent>!
       </>
     ),
   },

@@ -15,7 +15,7 @@ export default function ShareTweetButton({
   className,
   ...rest
 }: ShareTweetButtonProps) {
-  const text = `I just read an article about ${title} by @th_clarence.`;
+  const text = `I just read a post about ${title} by @christianaviii.`;
   const intentUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
     url
   )}&text=${encodeURIComponent(text)}%0A%0A`;
@@ -27,7 +27,7 @@ export default function ShareTweetButton({
       className={clsx('items-center gap-2', className)}
     >
       <SiTwitter className='text-[1.2em] text-[#1da1f2]' />
-      Tweet this article
+      Tweet this post
     </ButtonLink>
   );
 }
