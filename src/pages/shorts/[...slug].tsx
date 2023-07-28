@@ -9,7 +9,6 @@ import useContentMeta from '@/hooks/useContentMeta';
 import useScrollSpy from '@/hooks/useScrollspy';
 
 import Accent from '@/components/Accent';
-import CarbonAds from '@/components/CarbonAds';
 import LikeButton from '@/components/content/LikeButton';
 import MDXComponents from '@/components/content/MDXComponents';
 import TableOfContents, {
@@ -116,8 +115,6 @@ export default function SingleShortPage({ code, frontmatter }: LibraryType) {
                 </div>
               </aside>
             </section>
-
-            <CarbonAds className='mt-8' />
 
             <div className='mt-8 flex flex-col items-start gap-4 md:flex-row-reverse md:justify-between'>
               <CustomLink
