@@ -10,7 +10,6 @@ import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';
-import Button from '@/components/buttons/Button';
 import BlogCard from '@/components/content/blog/BlogCard';
 import SubscribeCard from '@/components/content/blog/SubscribeCard';
 import ContentPlaceholder from '@/components/content/ContentPlaceholder';
@@ -43,7 +42,7 @@ export default function IndexPage({
   const [sortOrder, setSortOrder] = React.useState<SortOption>(
     () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0]
   );
-  const [isEnglish, setIsEnglish] = React.useState<boolean>(true);
+  const [isEnglish] = React.useState<boolean>(true);
   const isLoaded = useLoaded();
 
   const populatedPosts = useInjectContentMeta('blog', posts);
@@ -57,7 +56,6 @@ export default function IndexPage({
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-  const clearSearch = () => setSearch('');
 
   React.useEffect(() => {
     const results = populatedPosts.filter(
@@ -84,9 +82,10 @@ export default function IndexPage({
   //#endregion  //*======== Search ===========
 
   //#region  //*=========== Post Language Splitter ===========
-  const englishPosts = filteredPosts.filter((p) => !p.slug.startsWith('id-'));
-  const bahasaPosts = filteredPosts.filter((p) => p.slug.startsWith('id-'));
-  const currentPosts = isEnglish ? englishPosts : bahasaPosts;
+
+  // Removed Bahasa language option
+  const currentPosts = filteredPosts;
+
   //#endregion  //*======== Post Language Splitter ===========
 
   //#region  //*=========== Tag ===========
@@ -163,15 +162,6 @@ export default function IndexPage({
               className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
               data-fade='4'
             >
-              <Button
-                onClick={() => {
-                  setIsEnglish((b) => !b);
-                  clearSearch();
-                }}
-                className='text-sm !font-medium'
-              >
-                Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
-              </Button>
               <SortListbox
                 selected={sortOrder}
                 setSelected={setSortOrder}

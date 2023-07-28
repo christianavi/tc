@@ -47,3 +47,6 @@ rss.xml
 
 # scripts
 scripts/out
+
+# code workspaces
+*.code-workspace
