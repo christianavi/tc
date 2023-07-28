@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
 
 import { getUserLikeCount } from '@/lib/api.server';
-import { getArticleViewsFromDevto } from '@/lib/devto';
 import { getSessionId } from '@/lib/helper.server';
 import { prismaClient } from '@/lib/prisma.client';
 
@@ -48,15 +47,9 @@ export default async function handler(
         },
       });
 
-      let devtoViews: number | undefined;
-      if (slug.startsWith('b_')) {
-        devtoViews = await getArticleViewsFromDevto(slug);
-      }
-
       return res.status(201).json({
-        contentViews: (content?._count.views ?? 0) + (devtoViews ?? 0),
-        contentLikes: content?._count.likes ?? 0,
-        devtoViews: devtoViews,
+        contentViews: content._count.views,
+        contentLikes: content._count.likes,
         likesByUser: likeCount + 1,
       });
     } else {
