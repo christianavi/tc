@@ -1,5 +1,3 @@
-import { getFromLocalStorage } from '@/lib/helper.client';
-
 export const isProd = process.env.NODE_ENV === 'production';
 
 /**
@@ -13,15 +11,15 @@ export const commentFlag =
  * Get content meta from the database
  * @see useContentMeta.tsx
  */
-export const contentMetaFlag =
-  isProd || process.env.NEXT_PUBLIC_FLAG_CONTENT_META === 'true';
+export const contentMetaFlag = true;
+// isProd || process.env.NEXT_PUBLIC_FLAG_CONTENT_META === 'true';
 
 /**
  * Increment content views
  * @see useContentMeta.tsx
  */
-export const incrementMetaFlag =
-  isProd && getFromLocalStorage('incrementMetaFlag') !== 'false';
+export const incrementMetaFlag = true;
+// isProd && getFromLocalStorage('incrementMetaFlag') !== 'false';
 
 /**
  * Show Spotify Now Playing on footer

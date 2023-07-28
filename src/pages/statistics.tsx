@@ -23,7 +23,6 @@ export default function StatisticsPage() {
   const rawBlogs = pickContentMeta(contentMeta, 'blog');
   const blogs = rawBlogs.map((blog) => ({
     ...blog,
-    webViews: blog.views - (blog?.devtoViews || 0),
   }));
   const blogColumns: ColumnDef<(typeof blogs)[number]>[] = [
     {
@@ -49,35 +48,6 @@ export default function StatisticsPage() {
         table
           .getFilteredRowModel()
           .rows.reduce((sum, row) => sum + row.original.views, 0)
-          .toLocaleString(),
-      meta: {
-        align: 'right',
-      },
-    },
-    {
-      accessorKey: 'webViews',
-      header: 'Web Views',
-      cell: ({ row }) => row.original.webViews.toLocaleString(),
-      footer: ({ table }) =>
-        table
-          .getFilteredRowModel()
-          .rows.reduce((sum, row) => sum + row.original.webViews, 0)
-          .toLocaleString(),
-      meta: {
-        align: 'right',
-      },
-    },
-    {
-      accessorKey: 'devtoViews',
-      header: 'dev.to',
-      cell: ({ row }) =>
-        row.original.devtoViews
-          ? row.original.devtoViews.toLocaleString()
-          : '-',
-      footer: ({ table }) =>
-        table
-          .getFilteredRowModel()
-          .rows.reduce((sum, row) => sum + (row.original.devtoViews ?? 0), 0)
           .toLocaleString(),
       meta: {
         align: 'right',

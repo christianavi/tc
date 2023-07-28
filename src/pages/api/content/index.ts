@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getViewsFromDevto } from '@/lib/devto';
 import { prismaClient } from '@/lib/prisma.client';
 
 export default async function handler(
@@ -19,18 +18,12 @@ export default async function handler(
           },
         },
       });
-      const devto = await getViewsFromDevto();
 
       const content = _content.map((meta) => {
-        const devtoViews = meta.slug.startsWith('b_')
-          ? devto?.find((i) => i.slug === meta.slug.replace('b_', ''))?.views
-          : undefined;
-
         return {
           slug: meta.slug,
-          views: meta._count.views + (devtoViews ?? 0),
+          views: meta._count.views,
           likes: meta._count.likes,
-          devtoViews,
         };
       });
 
