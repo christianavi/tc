@@ -81,12 +81,7 @@ export default function IndexPage({
   }, [search, sortOrder.id, populatedPosts]);
   //#endregion  //*======== Search ===========
 
-  //#region  //*=========== Post Language Splitter ===========
-
-  // Removed Bahasa language option
   const currentPosts = filteredPosts;
-
-  //#endregion  //*======== Post Language Splitter ===========
 
   //#region  //*=========== Tag ===========
   const toggleTag = (tag: string) => {

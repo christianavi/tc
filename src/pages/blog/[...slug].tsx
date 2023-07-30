@@ -8,7 +8,6 @@ import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 import { MdHistory } from 'react-icons/md';
 
 import { trackEvent } from '@/lib/analytics';
-import { cleanBlogPrefix } from '@/lib/helper.client';
 import {
   getFileBySlug,
   getFileSlugArray,
@@ -34,7 +33,6 @@ import CustomLink from '@/components/links/CustomLink';
 import ShareTweetButton from '@/components/links/ShareTweetButton';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
-import Tooltip from '@/components/Tooltip';
 
 import { BlogFrontmatter, BlogType } from '@/types/frontmatters';
 
@@ -60,14 +58,14 @@ export default function SingleBlogPage({
   const OG_BANNER_LINK = `https://res.cloudinary.com/theodorusclarence/image/upload/f_auto,c_fill,ar_4:5,w_1200/theodorusclarence/banner/${frontmatter.banner}`;
   //#endregion  //*======== Link Constants ===========
 
-  //#region  //*=========== Blog Language ===========
-  // TODO: add implementation, should be bugged if folder/id-slug.mdx
-  const cleanSlug = cleanBlogPrefix(frontmatter.slug);
-  const isEnglish = cleanSlug === frontmatter.slug;
-  //#endregion  //*======== Blog Language ===========
+  // //#region  //*=========== Blog Language ===========
+  // // TODO: add implementation, should be bugged if folder/id-slug.mdx
+  // const cleanSlug = cleanBlogPrefix(frontmatter.slug);
+  // const isEnglish = cleanSlug === frontmatter.slug;
+  // //#endregion  //*======== Blog Language ===========
 
   //#region  //*=========== Content Meta ===========
-  const contentSlug = `b_${cleanSlug}`;
+  const contentSlug = `b_${frontmatter.slug}`;
   const meta = useContentMeta(contentSlug, { runIncrement: true });
   //#endregion  //*======== Content Meta ===========
 
@@ -152,42 +150,13 @@ export default function SingleBlogPage({
                   <HiOutlineClock className='inline-block text-base' />
                   <Accent>{frontmatter.readingTime.text}</Accent>
                 </div>
-                {meta?.devtoViews ? (
-                  <Tooltip
-                    tipChildren={
-                      <>
-                        {meta.devtoViews.toLocaleString()} views on{' '}
-                        <CustomLink href='https://dev.to/theodorusclarence'>
-                          dev.to
-                        </CustomLink>
-                      </>
-                    }
-                    position='bottom'
-                  >
-                    <div className='flex items-center gap-1'>
-                      <HiOutlineEye className='inline-block text-base' />
-                      <Accent>
-                        {meta?.views?.toLocaleString() ?? '–––'} views
-                      </Accent>
-                    </div>
-                  </Tooltip>
-                ) : (
-                  <div className='flex items-center gap-1'>
-                    <HiOutlineEye className='inline-block text-base' />
-                    <Accent>
-                      {meta?.views?.toLocaleString() ?? '–––'} views
-                    </Accent>
-                  </div>
-                )}
+                <div className='flex items-center gap-1'>
+                  <HiOutlineEye className='inline-block text-base' />
+                  <Accent>
+                    {meta?.views?.toLocaleString() ?? '–––'} views
+                  </Accent>
+                </div>
               </div>
-              {!frontmatter?.englishOnly && (
-                <CustomLink
-                  href={`/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`}
-                  className='mt-4'
-                >
-                  Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
-                </CustomLink>
-              )}
             </div>
 
             <hr className='dark:border-gray-600' />
