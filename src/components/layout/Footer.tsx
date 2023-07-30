@@ -84,9 +84,7 @@ function SocialLinks() {
               {copyStatus === 'idle'
                 ? 'Click the mail logo to copy'
                 : 'Copied to clipboard 🥳'}
-              <Accent className='inline-block font-medium'>
-                nobody@iwr.pw
-              </Accent>
+              <Accent className='block font-medium'>nobody@iwr.pw</Accent>
             </div>
           }
         >
@@ -127,7 +125,7 @@ function SocialLinks() {
 const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
   [
     {
-      href: 'https://github.com/theodorusclarence/theodorusclarence.com',
+      href: 'https://github.com/christianavi/tc',
       text: 'Source Code',
       tooltip: (
         <>
@@ -138,49 +136,49 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
     {
       href: '/design',
       text: 'Design',
-      tooltip: 'theodorusclarence.com color palette',
+      tooltip: "Website's color palette",
     },
-    {
-      href: 'https://clarence.link/docs',
-      text: 'Docs',
-      tooltip: 'Personal documentation about my best practices on development',
-    },
-    {
-      href: 'https://clarence.link/booknotes',
-      text: 'Book Notes',
-      tooltip: 'Note collection of books that I read',
-    },
-    {
-      href: 'https://clarence.link/starters',
-      text: 'Starter Templates',
-      tooltip: 'Starter that I build and use throughout my projects',
-    },
-    {
-      href: 'https://clarence.link/um',
-      text: 'Analytics',
-      tooltip: 'theodorusclarence.com views and visitors analytics',
-    },
+    // {
+    //   href: 'https://clarence.link/docs',
+    //   text: 'Docs',
+    //   tooltip: 'Documentation of things I have learned',
+    // },
+    // {
+    //   href: 'https://clarence.link/booknotes',
+    //   text: 'Book Notes',
+    //   tooltip: 'Note collection of books that I read',
+    // },
+    // {
+    //   href: 'https://clarence.link/starters',
+    //   text: 'Starter Templates',
+    //   tooltip: 'Starter that I build and use throughout my projects',
+    // },
+    // {
+    //   href: 'https://clarence.link/um',
+    //   text: 'Analytics',
+    //   tooltip: 'theodorusclarence.com views and visitors analytics',
+    // },
     {
       href: '/statistics',
       text: 'Statistics',
       tooltip: 'Blog, Projects, and Library Statistics',
     },
-    {
-      href: '/guestbook',
-      text: 'Guestbook',
-      tooltip:
-        'Leave whatever you like to say—message, appreciation, suggestions',
-    },
-    {
-      href: '/subscribe',
-      text: 'Subscribe',
-      tooltip: 'Get an email whenever I post, no spam',
-    },
-    {
-      href: 'https://theodorusclarence.com/rss.xml',
-      text: 'RSS',
-      tooltip: 'Add theodorusclarence.com blog to your feeds',
-    },
+    // {
+    //   href: '/#',
+    //   text: 'Guestbook',
+    //   tooltip:
+    //     'Leave whatever you like to say—message, appreciation, suggestions',
+    // },
+    // {
+    //   href: '/subscribe',
+    //   text: 'Subscribe',
+    //   tooltip: 'Get an email whenever I post, no spam',
+    // },
+    // {
+    //   href: 'https://theodorusclarence.com/rss.xml',
+    //   text: 'RSS',
+    //   tooltip: 'Add theodorusclarence.com blog to your feeds',
+    // },
   ];
 
 type Social = {

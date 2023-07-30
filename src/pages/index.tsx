@@ -21,7 +21,6 @@ import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
-import TC from '@/components/TC';
 import Tooltip from '@/components/Tooltip';
 
 export default function IndexPage({
@@ -154,14 +153,6 @@ export default function IndexPage({
           >
             <IoArrowDownOutline className='h-8 w-8 animate-bounce md:h-10 md:w-10' />
           </UnstyledLink>
-          <TC
-            className={clsx(
-              'absolute bottom-0 right-6',
-              'translate-y-[37%] transform-gpu',
-              'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
-              'z-[-1] opacity-70 dark:opacity-30'
-            )}
-          />
         </section>
 
         <InView triggerOnce rootMargin='-40% 0px'>
